@@ -1,0 +1,1 @@
+This project focuses on learning the fundamentals of printf by building a working version of it from scratch.
