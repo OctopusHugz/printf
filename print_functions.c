@@ -31,7 +31,7 @@ void print_int(va_list args)
 	int holder;
 
 	holder = va_arg(args, int);
-	printnumber(holder);
+	print_number(holder);
 }
 
 /**
@@ -40,7 +40,7 @@ void print_int(va_list args)
  *
  * Return: void
  */
-void printnumber(int n)
+void print_number(int n)
 {
 	if (n < 0)
 	{
@@ -50,7 +50,7 @@ void printnumber(int n)
 	if (n == 0)
 		_putchar('0');
 	if (n/10)
-		printnumber(n/10);
+		print_number(n/10);
 	putchar(n%10 + '0');
 }
 
@@ -63,7 +63,7 @@ void print_float(va_list args)
 	float holder;
 
 	holder = va_arg(args, double);
-	printnumber(holder);
+	print_number(holder);
 }
 
 /**
@@ -93,5 +93,5 @@ void print_dec(va_list args)
 	float holder;
 
 	holder = va_arg(args, double);
-	printnumber(holder);
+	print_number(holder);
 }

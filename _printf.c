@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdarg.h>
 
-void _printf(const char * format, ...)
+int _printf(const char * format, ...)
 {
 	va_list args;
 	char *sep = "";
@@ -12,7 +12,7 @@ void _printf(const char * format, ...)
 	{
 		if (format[i] == '%')
 		{
-			modul(args, format[i + 1]);
+			modulo(args, format[i + 1]);
 			i++;
 		}
 		else

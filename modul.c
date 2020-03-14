@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdarg.h>
 
-void modul(va_list args, char c)
+void modulo(va_list args, char c)
 {
 	int i = 0;
 	specifier specs[] = {
