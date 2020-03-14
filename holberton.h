@@ -1,5 +1,7 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
+#include <stdarg.h>
+#include <stdlib.h>
 
 int _printf(const char *format, ...);
 
@@ -14,12 +16,14 @@ int special_check(char c);
  * @f: The function associated
  */
 
-typedef struct type
+typedef struct specifier
 {
 	char *string;
-	void (*f)();
+	void (*vpoin)();
 
-} types;
+} specifier;
+
+void printnumber(int n);
 
 void print_char(va_list args);
 

@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <unistd.h>
 #include "holberton.h"
 
@@ -18,30 +17,53 @@ int _putchar(char c)
  * print_char - prints a char
  * @arguments: char to print from va_list
  */
-
-void print_char(va_list arguments)
+void print_char(va_list args)
 {
-	printf("%c", va_arg(arguments, int));
+	_puthcar(va_arg(args, int));
 }
 
 /**
  * print_int - prints an integer
  * @arguments: integer to print from va_list
  */
-
-void print_int(va_list arguments)
+void print_int(va_list args)
 {
-	printf("%i", va_arg(arguments, int));
+	int holder;
+
+	holder = va_arg(args, int);
+	print_number(holder);
+}
+
+/**
+ * printnumber - start of funciton
+ * @n: number given to print
+ *
+ * Return: void
+ */
+void print_number(int n)
+{
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
+	if (n == 0)
+		_putchar('0');
+	if (n/10)
+		print_number(n/10);
+	putchar(n%10 + '0');
 }
 
 /**
  * print_float - prints a float
  * @arguments: float to print from va_list
  */
-
-void print_float(va_list arguments)
+void print_float(va_list args)
 {
-	printf("%f", va_arg(arguments, double));
+	float holder;
+
+	holder = va_arg(args, double);
+	print_number(holder);
 }
 
 /**
@@ -49,13 +71,16 @@ void print_float(va_list arguments)
  * @arguments: string to print from va_list
  */
 
-void print_string(va_list arguments)
+void print_string(va_list args)
 {
-	char *string = va_arg(arguments, char *);
+	char *string = va_arg(args, char *);
 
 	if (string == NULL)
-		printf("(nil)");
-	printf("%s", string);
+		break;
+	for (i = 0; string[i]; i++)
+	{
+		_putchar(string[i]);
+	}
 }
 
 /**
@@ -63,7 +88,10 @@ void print_string(va_list arguments)
  * @arguments: decimal value to print from va_list
  */
 
-void print_dec(va_list arguments)
+void print_dec(va_list args)
 {
-	printf("%d", va_arg(arguments, int));
+	float holder;
+
+	holder = va_arg(args, double);
+	print_number(holder);
 }
