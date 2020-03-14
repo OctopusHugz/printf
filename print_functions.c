@@ -35,10 +35,8 @@ void print_int(va_list args)
 }
 
 /**
- * printnumber - start of funciton
+ * print_number - start of funciton
  * @n: number given to print
- *
- * Return: void
  */
 void print_number(int n)
 {
@@ -49,9 +47,9 @@ void print_number(int n)
 	}
 	if (n == 0)
 		_putchar('0');
-	if (n/10)
-		print_number(n/10);
-	putchar(n%10 + '0');
+	if (n / 10)
+		print_number(n / 10);
+	putchar(n % 10 + '0');
 }
 
 /**
