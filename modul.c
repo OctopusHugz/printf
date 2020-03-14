@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdarg.h>
 
 void modulo(va_list args, char c)
 {
