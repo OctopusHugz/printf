@@ -7,8 +7,6 @@ int _printf(const char *format, ...);
 
 int _putchar(char c);
 
-int special_check(char c);
-
 /**
  * struct type - struct type
  *
@@ -23,7 +21,7 @@ typedef struct specifier
 
 } specifier;
 
-void printnumber(int n);
+void print_number(int n);
 
 void print_char(va_list args);
 
@@ -32,5 +30,7 @@ void print_int(va_list args);
 void print_float(va_list args);
 
 void print_string(va_list args);
+
+void print_dec(va_list args);
 
 #endif /* HOLBERTON_H */
