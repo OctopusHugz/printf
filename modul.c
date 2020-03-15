@@ -9,10 +9,11 @@ void modulo(va_list args, char c)
 		{"s", print_string},
 		{"d", print_dec},
 		{"f", print_float},
+		{"%", print_mod},
 		{NULL, NULL}
 	};
 
-	while (i < 1)
+	while (specs[i].string)
 	{
 		if (c == *(specs[i]).string)
 		{

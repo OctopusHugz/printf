@@ -3,8 +3,7 @@
 int _printf(const char * format, ...)
 {
 	va_list args;
-	char *sep = "";
-	int i = 0, j;
+	int i = 0, count;
 
 	va_start(args, format);
 	while (format != NULL && format[i] != '\0')
@@ -16,9 +15,10 @@ int _printf(const char * format, ...)
 		}
 		else
 		{
-			putchar(format[i]);
+			_putchar(format[i]);
 		}
 		i++;
+		count++;
 	}
-	putchar('\n');
+	return (count);
 }

@@ -35,4 +35,8 @@ void print_string(va_list args);
 
 void print_dec(va_list args);
 
+void print_mod(void);
+
+void modulo(va_list args, char c);
+
 #endif /* HOLBERTON_H */

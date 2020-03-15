@@ -7,6 +7,7 @@
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
+
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
@@ -14,17 +15,19 @@ int _putchar(char c)
 
 /**
  * print_char - prints a char
- * @arguments: char to print from va_list
+ * @args: char to print from va_list
  */
+
 void print_char(va_list args)
 {
-	_puthcar(va_arg(args, int));
+	_putchar(va_arg(args, int));
 }
 
 /**
  * print_int - prints an integer
- * @arguments: integer to print from va_list
+ * @args: integer to print from va_list
  */
+
 void print_int(va_list args)
 {
 	int holder;
@@ -37,6 +40,7 @@ void print_int(va_list args)
  * print_number - start of funciton
  * @n: number given to print
  */
+
 void print_number(int n)
 {
 	if (n < 0)
@@ -48,13 +52,14 @@ void print_number(int n)
 		_putchar('0');
 	if (n / 10)
 		print_number(n / 10);
-	putchar(n % 10 + '0');
+	_putchar(n % 10 + '0');
 }
 
 /**
  * print_float - prints a float
- * @arguments: float to print from va_list
+ * @args: float to print from va_list
  */
+
 void print_float(va_list args)
 {
 	float holder;
@@ -65,15 +70,16 @@ void print_float(va_list args)
 
 /**
  * print_string - prints a string
- * @arguments: string to print from va_list
+ * @args: string to print from va_list
  */
 
 void print_string(va_list args)
 {
+	int i;
 	char *string = va_arg(args, char *);
 
 	if (string == NULL)
-		break;
+		return;
 	for (i = 0; string[i]; i++)
 	{
 		_putchar(string[i]);
@@ -82,13 +88,23 @@ void print_string(va_list args)
 
 /**
  * print_dec - prints a decimal value
- * @arguments: decimal value to print from va_list
+ * @args: decimal value to print from va_list
  */
 
 void print_dec(va_list args)
 {
-	float holder;
+	int holder;
 
-	holder = va_arg(args, double);
+	holder = va_arg(args, int);
 	print_number(holder);
+}
+
+/**
+ * print_mod - prints a modulus operator
+ * @args: modulus operator to print from va_list
+ */
+
+void print_mod(void)
+{
+	_putchar('%');
 }
