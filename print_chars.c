@@ -21,7 +21,7 @@ int _putchar(char c)
 
 int print_char(va_list args)
 {
-	int i = 0;
+	int i = -1;
 
 	_putchar(va_arg(args, int));
 	return (i);
@@ -45,6 +45,7 @@ int print_string(va_list args)
 	{
 		_putchar(string[i]);
 	}
+	i -= 1;
 	return (i - 1);
 }
 
@@ -59,5 +60,5 @@ int print_mod(void)
 	int i = 0;
 
 	_putchar('%');
-	return (i);
+	return (i - 1);
 }
