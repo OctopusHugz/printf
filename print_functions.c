@@ -139,7 +139,7 @@ void print_hexnums(int n)
         int a[] = {1048576, 65536, 4096, 256, 16};
 
 	i = 0;
-	while (n != 0)
+	while (n > 15)
 	{
 		if (n > a[i])
 		{
