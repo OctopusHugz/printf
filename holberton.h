@@ -10,10 +10,10 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 
 /**
- * struct type - struct type
+ * struct specifier - struct type
  *
  * @string: The string
- * @f: The function associated
+ * @vpoin: The function associated
  */
 
 typedef struct specifier
@@ -23,7 +23,24 @@ typedef struct specifier
 
 } specifier;
 
+/**
+ * struct hex - converts hex
+ * @num: int equal
+ * @h: hex conversion
+ *
+ */
+
+typedef struct hex
+{
+	int num;
+	char h;
+} hex;
+
+void print_hexnums(int n);
+
 void print_number(int n);
+
+void print_pointer(va_list args);
 
 void print_char(va_list args);
 

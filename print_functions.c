@@ -108,3 +108,51 @@ void print_mod(void)
 {
 	_putchar('%');
 }
+
+void print_pointer(va_list args)
+{
+	int holder;
+
+	holder = va_arg(args, int);
+	print_hexnums(holder);
+}
+void print_hexnums(int n)
+{
+	int i, j, k, l;
+        hex compare[] = {
+                {1, '1'},
+                {2, '2'},
+                {3, '3'},
+                {4, '4'},
+                {5, '5'},
+                {6, '6'},
+                {7, '7'},
+                {8, '8'},
+                {9, '9'},
+                {10, 'a'},
+                {11, 'b'},
+                {12, 'c'},
+                {13, 'd'},
+                {14, 'e'},
+                {15, 'f'}
+        };
+        int a[] = {1048576, 65536, 4096, 256, 16};
+
+	i = 0;
+	while (n > 15)
+	{
+		if (n > a[i])
+		{
+			j = n / a[i];
+			k = j * a[i];
+			print_hexnums(n - k);
+			l = n - k;
+		}
+		i++;
+	}
+	for (i = 0; i < 15; i++)
+	{
+		if (l == compare[i].num)
+			_putchar(compare[i].h);
+	}
+}
