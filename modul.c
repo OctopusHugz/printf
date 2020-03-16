@@ -4,17 +4,19 @@
  * modulo - finds correct function to run based on format specifier
  * @args: va_list of args passed to function
  * @c: character to pass through struct
+ * Return: int
  */
 
-void modulo(va_list args, char c)
+int modulo(va_list args, char c)
 {
-	int i = 0;
+	int i = 0, count = 0;
 	specifier specs[] = {
 		{"i", print_int},
 		{"c", print_char},
 		{"s", print_string},
 		{"d", print_dec},
 		{"%", print_mod},
+		{"p", print_pointer},
 		{NULL, NULL}
 	};
 
@@ -22,8 +24,9 @@ void modulo(va_list args, char c)
 	{
 		if (c == *(specs[i]).string)
 		{
-			specs[i].vpoin(args);
+			count = specs[i].vpoin(args);
 		}
 		i++;
 	}
+	return (count);
 }

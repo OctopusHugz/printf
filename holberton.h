@@ -13,6 +13,8 @@ int _strlen(const char *format);
 
 int count_mods(const char *format);
 
+int count_args(char *holder);
+
 /**
  * struct specifier - struct type
  *
@@ -23,7 +25,7 @@ int count_mods(const char *format);
 typedef struct specifier
 {
 	char *string;
-	void (*vpoin)();
+	int (*vpoin)();
 
 } specifier;
 
@@ -40,26 +42,26 @@ typedef struct hex
 	char h;
 } hex;
 
-void print_hex_lower(va_list args);
+int print_hex_lower(va_list args);
 
-void hex_recursion_lower(unsigned int n);
+int hex_recursion_lower(unsigned int n);
 
-void print_number(int n);
+int print_number(int n);
 
-void print_pointer(va_list args);
+int print_pointer(va_list args);
 
-void print_char(va_list args);
+int print_char(va_list args);
 
-void print_int(va_list args);
+int print_int(va_list args);
 
-void print_float(va_list args);
+int print_float(va_list args);
 
-void print_string(va_list args);
+int print_string(va_list args);
 
-void print_dec(va_list args);
+int print_dec(va_list args);
 
-void print_mod(void);
+int print_mod(void);
 
-void modulo(va_list args, char c);
+int modulo(va_list args, char c);
 
 #endif /* HOLBERTON_H */
