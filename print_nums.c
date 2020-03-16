@@ -58,5 +58,5 @@ int print_dec(va_list args)
 
 	holder = va_arg(args, int);
 	i += print_number(holder);
-	return (i);
+	return (i - 1);
 }
