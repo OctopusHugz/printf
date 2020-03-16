@@ -13,7 +13,7 @@ int print_int(va_list args)
 
 	holder = va_arg(args, int);
 	i += print_number(holder);
-	return (i);
+	return (i - 2);
 }
 
 /**
@@ -30,17 +30,14 @@ int print_number(int n)
 	{
 		_putchar('-');
 		n = -n;
-		i += 1;
+		i++;
 	}
-	if (n == 0)
+	else if (n / 10)
 	{
-		_putchar('0');
-		i += 1;
+		i += print_number(n / 10);
 	}
-	if (n / 10)
-		print_number(n / 10);
 	_putchar(n % 10 + '0');
-	i += 1;
+	i++;
 	return (i);
 }
 
@@ -58,5 +55,5 @@ int print_dec(va_list args)
 
 	holder = va_arg(args, int);
 	i += print_number(holder);
-	return (i - 1);
+	return (i - 2);
 }
