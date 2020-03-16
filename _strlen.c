@@ -8,7 +8,7 @@
  */
 int _strlen(const char *p)
 {
-	int i, j;
+	int i, j, k = 0;
 
 	for (i = 0; p[i]; i++)
 		;
@@ -26,5 +26,15 @@ int _strlen(const char *p)
 			}
 		}
 	}
-	return (i - 1);
+	for (j = 0; p[j]; j++)
+	{
+		if (p[j] == '%')
+			k++;
+	}
+	if (k >= 1)
+	{
+		return (i - 1);
+	}
+	else
+		return (i);
 }
