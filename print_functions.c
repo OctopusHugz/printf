@@ -111,48 +111,47 @@ void print_mod(void)
 
 void print_pointer(va_list args)
 {
-	int holder;
+	unsigned int holder;
 
 	holder = va_arg(args, int);
-	print_hexnums(holder);
-}
-void print_hexnums(int n)
-{
-	int i, j, k, l;
-        hex compare[] = {
-                {1, '1'},
-                {2, '2'},
-                {3, '3'},
-                {4, '4'},
-                {5, '5'},
-                {6, '6'},
-                {7, '7'},
-                {8, '8'},
-                {9, '9'},
-                {10, 'a'},
-                {11, 'b'},
-                {12, 'c'},
-                {13, 'd'},
-                {14, 'e'},
-                {15, 'f'}
-        };
-        int a[] = {1048576, 65536, 4096, 256, 16};
+	_putchar('0');
+	_putchar('x');
+	hex_recursion_lower(holder);
 
-	i = 0;
-	while (n > 15)
+}
+void print_hex_lower(va_list args)
+{
+	unsigned int n;
+
+	n = va_arg(args, int);
+	hex_recursion_lower(n);
+}
+
+void hex_recursion_lower(unsigned int n)
+{
+	unsigned int num, i, j;
+	int remainder;
+	char *dec = "012345";
+	char *hex = "fedcba";
+
+	if (n == 1)
+		_putchar('1');
+	if (n > 1)
 	{
-		if (n > a[i])
+		num = n / 16;
+		remainder = n % 16;
+
+		if (remainder > 9)
 		{
-			j = n / a[i];
-			k = j * a[i];
-			print_hexnums(n - k);
-			l = n - k;
+			remainder = remainder - 15;
+			remainder = -remainder;
+			for (i = 0, j = 0; dec[i]; i++, j++)
+			{
+				if (remainder == (dec[i] - '0'))
+					remainder = hex[j] - '0';
+			}
 		}
-		i++;
-	}
-	for (i = 0; i < 15; i++)
-	{
-		if (l == compare[i].num)
-			_putchar(compare[i].h);
+		hex_recursion_lower(num);
+		_putchar(remainder + '0');
 	}
 }

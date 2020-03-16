@@ -32,9 +32,11 @@ typedef struct specifier
 
 typedef struct hex
 {
-	int num;
+	unsigned int num;
 	char h;
 } hex;
+
+void hex_recursion_lower(unsigned int n);
 
 void print_hexnums(int n);
 
