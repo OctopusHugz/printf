@@ -1,40 +1,36 @@
 #include "holberton.h"
 
 /**
- * _strlen - start of function
- * @p: char pointer given
+ * _strlen - returns the length of a string
+ * @format: String to return the lenght of
  *
- * Return: int
+ * Return: 0 if success
  */
-int _strlen(const char *p)
-{
-	int i, j, k = 0;
 
-	for (i = 0; p[i]; i++)
+int _strlen(const char *format)
+{
+	int len;
+
+	for (len = 0; format[len]; len++)
 		;
-	for (j = 0; p[j]; j++)
+
+	return (len);
+}
+
+/**
+ * count_mods - counts the number of modulus operators in a string
+ * @format: string to check for modulus operators
+ * Return: Number of modulus operators in string
+ */
+
+int count_mods(const char *format)
+{
+	int i, num_mods = 0;
+
+	for (i = 0; format[i]; i++)
 	{
-		if (p[j] == '%')
-		{
-			if (p[j - 1] == '%')
-			{
-				if (p[j - 2] == '%')
-				{
-					i -= 1;
-					j += 1;
-				}
-			}
-		}
+		if (format[i] == '%' && format[i + 1] != '%')
+			num_mods++;
 	}
-	for (j = 0; p[j]; j++)
-	{
-		if (p[j] == '%')
-			k++;
-	}
-	if (k >= 1)
-	{
-		return (i - 1);
-	}
-	else
-		return (i);
+	return (num_mods);
 }

@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, count;
+	int i = 0, count, num_mods = 0;
 
 	count = _strlen(format);
 	va_start(args, format);
@@ -26,5 +26,7 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+	num_mods = count_mods(format);
+	count -= num_mods;
 	return (count);
 }
