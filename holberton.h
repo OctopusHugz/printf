@@ -11,8 +11,6 @@ int _putchar(char c);
 
 int _strlen(const char *format);
 
-int count_mods(const char *format);
-
 int count_args(char *holder);
 
 /**
