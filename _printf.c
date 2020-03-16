@@ -11,14 +11,13 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, count;
 
-	count = 0;
+	count = _strlen(format);
 	va_start(args, format);
 	while (format != NULL && format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
 			modulo(args, format[i + 1]);
-			count++;
 			i++;
 		}
 		else
@@ -26,7 +25,6 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 		}
 		i++;
-		count++;
 	}
 	return (count);
 }

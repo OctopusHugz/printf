@@ -9,6 +9,8 @@ int _printf(const char *format, ...);
 
 int _putchar(char c);
 
+int _strlen(const char *p);
+
 /**
  * struct specifier - struct type
  *
@@ -36,9 +38,9 @@ typedef struct hex
 	char h;
 } hex;
 
-void hex_recursion_lower(unsigned int n);
+void print_hex_lower(va_list args);
 
-void print_hexnums(int n);
+void hex_recursion_lower(unsigned int n);
 
 void print_number(int n);
 
