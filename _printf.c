@@ -9,7 +9,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, count, num_mods = 0;
+	int i = 0, count, num_mods = 0, num_args = 0;
 
 	count = _strlen(format);
 	va_start(args, format);
@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			modulo(args, format[i + 1]);
+			num_args += modulo(args, format[i + 1]);
 			i++;
 		}
 		else
@@ -26,6 +26,7 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+	count += num_args;
 	num_mods = count_mods(format);
 	count -= num_mods;
 	return (count);

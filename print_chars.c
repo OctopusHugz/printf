@@ -16,38 +16,48 @@ int _putchar(char c)
 /**
  * print_char - prints a char
  * @args: char to print from va_list
+ * Return: int
  */
 
-void print_char(va_list args)
+int print_char(va_list args)
 {
+	int i = 0;
+
 	_putchar(va_arg(args, int));
+	return (i);
 }
 
 
 /**
  * print_string - prints a string
  * @args: string to print from va_list
+ * Return: int
  */
 
-void print_string(va_list args)
+int print_string(va_list args)
 {
-	int i;
+	int i = 0;
 	char *string = va_arg(args, char *);
 
 	if (string == NULL)
-		return;
+		return (i);
 	for (i = 0; string[i]; i++)
 	{
 		_putchar(string[i]);
 	}
+	return (i - 1);
 }
 
 
 /**
  * print_mod - prints a modulus operator
+ * Return: int
  */
 
-void print_mod(void)
+int print_mod(void)
 {
+	int i = 0;
+
 	_putchar('%');
+	return (i);
 }
