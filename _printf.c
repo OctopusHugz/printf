@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			modulo(args, format[i + 1]);
+			count++;
 			i++;
 		}
 		else
