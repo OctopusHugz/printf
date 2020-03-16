@@ -1,6 +1,6 @@
 .\"original file zless /usr/share/man/man3/printf.3.gz
 .\"
-.TH _PRINTF 3 "22 November 2016" "1.0" "holberton man page"
+.TH _PRINTF 3 "16 March 2020" "1.0" "holberton man page"
 .SH NAME
 .B _printf
 - formatted output conversion.
