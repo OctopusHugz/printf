@@ -10,6 +10,7 @@ void modulo(va_list args, char c)
 		{"d", print_dec},
 		{"f", print_float},
 		{"%", print_mod},
+		{"p", print_pointer},
 		{NULL, NULL}
 	};
 
