@@ -40,7 +40,9 @@ int print_string(va_list args)
 	char *string = va_arg(args, char *);
 
 	if (string == NULL)
-		return (i);
+	{
+		string = "(null)";
+	}
 	for (i = 0; string[i]; i++)
 	{
 		_putchar(string[i]);
