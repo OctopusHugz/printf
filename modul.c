@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * modulo - finds correct function to run based on format specifier
+ * @args: va_list of args passed to function
+ * @c: character to pass through struct
+ */
+
 void modulo(va_list args, char c)
 {
 	int i = 0;
@@ -8,9 +14,7 @@ void modulo(va_list args, char c)
 		{"c", print_char},
 		{"s", print_string},
 		{"d", print_dec},
-		{"f", print_float},
 		{"%", print_mod},
-		{"p", print_pointer},
 		{NULL, NULL}
 	};
 
