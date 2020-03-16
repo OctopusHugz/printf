@@ -9,6 +9,8 @@ int _printf(const char *format, ...);
 
 int _putchar(char c);
 
+int _strlen(const char *p);
+
 /**
  * struct specifier - struct type
  *
@@ -32,11 +34,13 @@ typedef struct specifier
 
 typedef struct hex
 {
-	int num;
+	unsigned int num;
 	char h;
 } hex;
 
-void print_hexnums(int n);
+void print_hex_lower(va_list args);
+
+void hex_recursion_lower(unsigned int n);
 
 void print_number(int n);
 
