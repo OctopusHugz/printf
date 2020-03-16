@@ -9,7 +9,9 @@ int _printf(const char *format, ...);
 
 int _putchar(char c);
 
-int _strlen(const char *p);
+int _strlen(const char *format);
+
+int count_mods(const char *format);
 
 /**
  * struct specifier - struct type
