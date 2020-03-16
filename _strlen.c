@@ -18,22 +18,18 @@ int _strlen(const char *p)
 		{
 			if (p[j - 1] == '%')
 			{
-				if (p[j - 2] == '%')
-				{
-					i -= 1;
-					j += 1;
-				}
+				k++;
+				j += 1;
 			}
 		}
 	}
-	for (j = 0; p[j]; j++)
+	if (k == 1)
 	{
-		if (p[j] == '%')
-			k++;
+		return (i - k);
 	}
-	if (k >= 1)
+	if (k >= 2)
 	{
-		return (i - 1);
+		return (i - k - 1);
 	}
 	else
 		return (i);
