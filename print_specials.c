@@ -12,7 +12,7 @@ int print_hex_lower(va_list args)
 
 	n = va_arg(args, int);
 	i = hex_recursion_lower(n);
-	return (i - 2);
+	return (i - 3);
 
 }
 
