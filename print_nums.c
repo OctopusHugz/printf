@@ -1,4 +1,3 @@
-#include <limits.h>
 #include "holberton.h"
 
 /**
@@ -85,4 +84,20 @@ int print_number_ui(unsigned int n)
 	_putchar(n % 10 + '0');
 	i++;
 	return (i);
+}
+
+
+/**
+ * print_unsigned - prints an unsigned integer
+ * @args: unsigned integer from va_list
+ * Return: number of integers printed
+ */
+
+int print_unsigned(va_list arguments)
+{
+	int i = 0;
+	unsigned ui = va_arg(arguments, int);
+
+	i += print_number_ui(ui);
+	return (i - 2);
 }

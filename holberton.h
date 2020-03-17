@@ -41,17 +41,7 @@ typedef struct hex
 	char h;
 } hex;
 
-int print_hex_lower(va_list args);
-
-int print_hex_upper(va_list args);
-
-int hex_recursion_lower(unsigned int n);
-
-int hex_recursion_upper(unsigned int n);
-
 int print_number(int n);
-
-int print_pointer(va_list args);
 
 int print_char(va_list args);
 
@@ -71,6 +61,24 @@ int print_binary(va_list args);
 
 int binary_recursion(unsigned int n);
 
+int print_unsigned(va_list args);
+
 int print_number_ui(unsigned int n);
+
+int print_octal(va_list args);
+
+int octal_recursion(unsigned int n);
+
+int print_hex_lower(va_list args);
+
+int hex_recursion_lower(unsigned int n);
+
+int print_hex_upper(va_list args);
+
+int hex_recursion_upper(unsigned int n);
+
+int print_string_cust(va_list arguments);
+
+int print_pointer(va_list args);
 
 #endif /* HOLBERTON_H */
