@@ -20,6 +20,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				return (-1);
 			num_args += modulo(args, format[i + 1]);
 			i++;
 		}
