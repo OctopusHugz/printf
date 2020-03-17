@@ -51,7 +51,7 @@ int hex_recursion_lower(unsigned int n)
 		count += hex_recursion_lower(num);
 		_putchar(remainder + '0');
 	}
-	return (count + 1);
+		return (count + 1);
 }
 
 /**
