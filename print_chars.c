@@ -22,8 +22,11 @@ int _putchar(char c)
 int print_char(va_list args)
 {
 	int i = -1;
+	int c = va_arg(args, int);
 
-	_putchar(va_arg(args, int));
+	if (c < 32 && c > 127)
+		return (-1);
+	_putchar(c);
 	return (i);
 }
 
