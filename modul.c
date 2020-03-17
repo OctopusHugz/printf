@@ -25,8 +25,14 @@ int modulo(va_list args, char c)
 		if (c == *(specs[i]).string)
 		{
 			count = specs[i].vpoin(args);
+			break;
 		}
 		i++;
+	}
+	if (i == 6)
+	{
+		_putchar('%');
+		_putchar(c);
 	}
 	return (count);
 }
