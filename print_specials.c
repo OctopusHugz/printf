@@ -12,7 +12,8 @@ int print_hex_lower(va_list args)
 
 	n = va_arg(args, int);
 	i = hex_recursion_lower(n);
-	return (i);
+	return (i - 2);
+
 }
 
 /**
@@ -31,7 +32,6 @@ int hex_recursion_lower(unsigned int n)
 	if (n == 1)
 	{
 		_putchar('1');
-		count += 1;
 	}
 	if (n > 1)
 	{
@@ -48,11 +48,10 @@ int hex_recursion_lower(unsigned int n)
 					remainder = hex[j] - '0';
 			}
 		}
-		hex_recursion_lower(num);
+		count += hex_recursion_lower(num);
 		_putchar(remainder + '0');
-		count += 1;
 	}
-	return (count);
+	return (count + 1);
 }
 
 /**
