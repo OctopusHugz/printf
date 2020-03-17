@@ -1,6 +1,21 @@
 #include "holberton.h"
 
 /**
+ * print_hex_lower - start of function
+ * @args: arguments given
+ * Return: int
+ */
+int print_hex_lower(va_list args)
+{
+	int i = 0;
+	unsigned int n;
+
+	n = va_arg(args, int);
+	i = hex_recursion_lower(n);
+	return (i);
+}
+
+/**
  * hex_recursion_lower - start of function
  * @n: unsigned int
  * Return: int
@@ -41,6 +56,53 @@ int hex_recursion_lower(unsigned int n)
 }
 
 /**
+ * print_binary - prints a binary number
+ * @args: decimal number from va_list
+ * Return: number of binary digits printed
+ */
+
+int print_binary(va_list args)
+{
+	int i = 0;
+	unsigned int n = va_arg(args, int);
+
+	i = binary_recursion(n);
+	return (i);
+}
+
+/**
+ * binary_recursion - recursively prints a binary number
+ * @n: decimal number to print in binary
+ * Return: number of binary digits printed
+ */
+
+int binary_recursion(unsigned int n)
+{
+	static int i = 0;
+
+	if (n == 1)
+	{
+		_putchar('1');
+		i++;
+	}
+	else if (n % 2 == 0)
+	{
+		binary_recursion(n / 2);
+		_putchar('0');
+		i++;
+	}
+	else if (n % 2 == 1)
+	{
+		binary_recursion(n / 2);
+		_putchar('1');
+		i++;
+	}
+	return (i - 3);
+}
+
+
+
+/**
  * print_pointer - start of function
  * @args: argument given
  * Return: int
@@ -56,20 +118,5 @@ int print_pointer(va_list args)
 	_putchar('x');
 	i += 1;
 	i = hex_recursion_lower(holder);
-	return (i);
-}
-
-/**
- * print_hex_lower - start of function
- * @args: arguments given
- * Return: int
- */
-int print_hex_lower(va_list args)
-{
-	int i = 0;
-	unsigned int n;
-
-	n = va_arg(args, int);
-	i = hex_recursion_lower(n);
 	return (i);
 }

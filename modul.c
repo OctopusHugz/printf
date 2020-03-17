@@ -16,6 +16,7 @@ int modulo(va_list args, char c)
 		{"s", print_string},
 		{"d", print_dec},
 		{"%", print_mod},
+		{"b", print_binary},
 		{"p", print_pointer},
 		{NULL, NULL}
 	};
