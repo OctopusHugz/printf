@@ -67,3 +67,48 @@ int print_mod(void)
 	_putchar('%');
 	return (i - 1);
 }
+
+
+/**
+ * print_string_cust - custom string print function prints any
+ * non-printable characters as '\x' followed by ascii value
+ * in hexadecimal uppercase
+ * @args: custom string to print from va_lst
+ * Return: number of characters printed
+ */
+
+int print_string_cust(va_list args)
+{
+	char *string = va_arg(args, char *);
+	int i, count = 0;
+
+	if (string == NULL)
+	{
+		_printf("(null)");
+		count += 4;
+		return (count);
+	}
+	for (i = 0; string[i]; i++)
+	{
+		if ((string[i] > 0 && string[i] < 32) || string[i] >= 127)
+		{
+			_putchar('\\');
+			_putchar('x');
+			count += 2;
+			if (string[i] < '7' + '9' && string[i] >= '9')
+			{
+				_putchar('0');
+				count++;
+			}
+
+			count += hex_recursion_upper(string[i]);
+		}
+		else
+		{
+			_putchar(string[i]);
+			count++;
+		}
+	}
+	count++;
+	return (count);
+}
