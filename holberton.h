@@ -62,4 +62,8 @@ int print_mod(void);
 
 int modulo(va_list args, char c);
 
+int print_binary(va_list args);
+
+int binary_recursion(unsigned int n);
+
 #endif /* HOLBERTON_H */
