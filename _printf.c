@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int i = 0, count, num_args = 0;
 
 	if (format == NULL)
-		return (1);
+		return (-1);
 
 	count = _strlen(format);
 	va_start(args, format);
@@ -30,5 +30,6 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	count += num_args;
+	va_end(args);
 	return (count);
 }
