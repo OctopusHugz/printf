@@ -81,6 +81,7 @@ int print_number_ui(unsigned int n)
 
 	if (n / 10)
 		i += print_number_ui(n / 10);
+
 	_putchar(n % 10 + '0');
 	i++;
 	return (i);
