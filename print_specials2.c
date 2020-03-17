@@ -95,5 +95,5 @@ int hex_recursion_upper(unsigned int n)
 		_putchar(remainder + '0');
 		count += 1;
 	}
-	return (count);
+	return (count + 5);
 }
