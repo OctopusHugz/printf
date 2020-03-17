@@ -78,7 +78,7 @@ int print_binary(va_list args)
 
 int binary_recursion(unsigned int n)
 {
-	static int i = 0;
+	static int i;
 
 	if (n == 1)
 	{
