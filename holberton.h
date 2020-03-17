@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 int _printf(const char *format, ...);
 
@@ -44,7 +45,7 @@ int print_hex_lower(va_list args);
 
 int hex_recursion_lower(unsigned int n);
 
-int print_number(int n);
+int print_number(unsigned int n);
 
 int print_pointer(va_list args);
 

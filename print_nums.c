@@ -10,9 +10,17 @@ int print_int(va_list args)
 {
 	int i = 0;
 	int holder;
+	unsigned int print;
 
 	holder = va_arg(args, int);
-	i += print_number(holder);
+	if (holder < 0)
+	{
+		_putchar ('-');
+		holder = -holder;
+		i += 1;
+	}
+	print = holder;
+	i += print_number(print);
 	return (i - 2);
 }
 
@@ -22,16 +30,10 @@ int print_int(va_list args)
  * Return: int
  */
 
-int print_number(int n)
+int print_number(unsigned int n)
 {
 	int i = 0;
 
-	if (n < 0)
-	{
-		_putchar('-');
-		n = -n;
-		i++;
-	}
 	if (n / 10)
 	{
 		i += print_number(n / 10);
@@ -52,8 +54,16 @@ int print_dec(va_list args)
 {
 	int i = 0;
 	int holder;
+	unsigned int print;
 
 	holder = va_arg(args, int);
-	i += print_number(holder);
+	if (holder < 0)
+	{
+		_putchar ('-');
+		holder = -holder;
+		i += 1;
+	}
+	print = holder;
+	i += print_number(print);
 	return (i - 2);
 }
