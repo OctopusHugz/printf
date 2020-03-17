@@ -17,6 +17,11 @@ int modulo(va_list args, char c)
 		{"d", print_dec},
 		{"%", print_mod},
 		{"b", print_binary},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hex_lower},
+		{"X", print_hex_upper},
+		{"S", print_string_cust},
 		{"p", print_pointer},
 		{NULL, NULL}
 	};
