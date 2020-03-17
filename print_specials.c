@@ -67,7 +67,7 @@ int print_binary(va_list args)
 	unsigned int n = va_arg(args, int);
 
 	i = binary_recursion(n);
-	return (i);
+	return (i - 3);
 }
 
 /**
@@ -78,8 +78,13 @@ int print_binary(va_list args)
 
 int binary_recursion(unsigned int n)
 {
-	static int i;
+	int i = 0;
 
+	if (n == 0)
+	{
+		_putchar('0');
+		return (2);
+	}
 	if (n == 1)
 	{
 		_putchar('1');
@@ -87,17 +92,16 @@ int binary_recursion(unsigned int n)
 	}
 	else if (n % 2 == 0)
 	{
-		binary_recursion(n / 2);
+		i += binary_recursion(n / 2);
 		_putchar('0');
-		i++;
 	}
 	else if (n % 2 == 1)
 	{
-		binary_recursion(n / 2);
+		i += binary_recursion(n / 2);
 		_putchar('1');
-		i++;
 	}
-	return (i - 3);
+	i++;
+	return (i);
 }
 
 
