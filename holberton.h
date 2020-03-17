@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 
 int _printf(const char *format, ...);
 
@@ -42,7 +43,11 @@ typedef struct hex
 
 int print_hex_lower(va_list args);
 
+int print_hex_upper(va_list args);
+
 int hex_recursion_lower(unsigned int n);
+
+int hex_recursion_upper(unsigned int n);
 
 int print_number(int n);
 
