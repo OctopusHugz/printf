@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-.\"original file zless /usr/share/man/man3/printf.3.gz
-.\"
-.TH _PRINTF 3 "16 March 2020" "1.0" "holberton man page"
-=======
 .TH _PRINTF 3 "14 March 2020" "1.0" "_printf man page"
->>>>>>> 9dceb174422309842400003262b7aedc741122ff
 .SH NAME
 .B _printf
 - formatted output conversion.
