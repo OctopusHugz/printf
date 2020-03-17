@@ -66,4 +66,6 @@ int print_binary(va_list args);
 
 int binary_recursion(unsigned int n);
 
+int print_number_ui(unsigned int n);
+
 #endif /* HOLBERTON_H */

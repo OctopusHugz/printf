@@ -1,3 +1,4 @@
+#include <limits.h>
 #include "holberton.h"
 
 /**
@@ -24,7 +25,16 @@ int print_int(va_list args)
 
 int print_number(int n)
 {
+	unsigned int ui = (unsigned int)INT_MAX + 1;
 	int i = 0;
+
+	if (n == INT_MIN)
+	{
+		_putchar('-');
+		i++;
+		i += print_number_ui(ui);
+		return (i);
+	}
 
 	if (n < 0)
 	{
@@ -56,4 +66,23 @@ int print_dec(va_list args)
 	holder = va_arg(args, int);
 	i += print_number(holder);
 	return (i - 2);
+}
+
+
+/**
+ * print_number_ui - prints an unsigned integer
+ * @n: unsigned integer to print
+ * Return: number of integers printed
+ */
+
+int print_number_ui(unsigned int n)
+{
+	int i = 0;
+
+	if (n / 10)
+		i += print_number_ui(n / 10);
+
+	_putchar(n % 10 + '0');
+	i++;
+	return (i);
 }
