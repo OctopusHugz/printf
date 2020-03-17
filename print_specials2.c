@@ -53,7 +53,7 @@ int print_hex_upper(va_list args)
 
 	n = va_arg(args, int);
 	i = hex_recursion_upper(n);
-	return (i - 2);
+	return (i - 3);
 }
 
 /**
