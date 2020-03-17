@@ -1,10 +1,51 @@
 #include "holberton.h"
 
 /**
- * print_hex_upper - start of function
- * @args: arguments given
- * Return: int
+ * print_octal - prints an integer in base 8
+ * @args: integer to print in base 8 from va_list
+ * Return: number of octal integers printed
  */
+
+int print_octal(va_list args)
+{
+	int i = 0;
+	unsigned int n = va_arg(args, int);
+
+	i = octal_recursion(n);
+	return (i - 3);
+}
+
+
+/**
+ * octal_recursion - recursively prints an octal number
+ * @n: integer to print in base 8
+ * Return: number of binary digits printed
+ */
+
+int octal_recursion(unsigned int n)
+{
+	int i = 0;
+	unsigned int num, remainder;
+
+	if (n > 0)
+	{
+		num = n / 8;
+		remainder = n % 8;
+
+		i += octal_recursion(num);
+		_putchar(remainder + '0');
+	}
+	i++;
+	return (i);
+}
+
+
+/**
+ * print_hex_upper - prints an integer in hexadecimal uppercase
+ * @args: integer to print in hexadecimal uppercase from va_list
+ * Return: number of hexadecimal integers printed
+ */
+
 int print_hex_upper(va_list args)
 {
 	int i = 0;
@@ -16,10 +57,11 @@ int print_hex_upper(va_list args)
 }
 
 /**
- * hex_recursion_upper - start of function
- * @n: unsigned int
- * Return: int
+ * hex_recursion_upper - recursively prints a hexadecimal number in uppercase
+ * @n: integer to print in hexadecimal uppercase
+ * Return: number of hexadecimal integers printed
  */
+
 int hex_recursion_upper(unsigned int n)
 {
 	int count = 0;
