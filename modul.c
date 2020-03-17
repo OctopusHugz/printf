@@ -29,7 +29,7 @@ int modulo(va_list args, char c)
 		}
 		i++;
 	}
-	if (i == 6)
+	if (specs[i].string == NULL)
 	{
 		_putchar('%');
 		_putchar(c);
