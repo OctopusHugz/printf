@@ -80,27 +80,27 @@ int print_mod(void)
 int print_string_cust(va_list args)
 {
 	char *string = va_arg(args, char *);
-	int i, count = 0;
+	char *point = string;
+	int i = 0, count = 0;
 
 	if (string == NULL)
 	{
 		_printf("(null)");
-		count += 4;
-		return (count);
+		return (4);
 	}
-	for (i = 0; string[i]; i++)
+	if (string[i] == '\0')
+		return (-2);
+	for (i = 0; string[i]; i++, point++)
 	{
 		if ((string[i] > 0 && string[i] < 32) || string[i] >= 127)
 		{
 			_putchar('\\');
 			_putchar('x');
-			count += 2;
-			if (string[i] < '7' + '9' && string[i] >= '9')
+			/*count += 2;*/
+			if (*point >= 9 && *point <= 16)
 			{
 				_putchar('0');
-				count++;
 			}
-
 			count += hex_recursion_upper(string[i]);
 		}
 		else

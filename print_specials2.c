@@ -12,7 +12,7 @@ int print_octal(va_list args)
 	unsigned int n = va_arg(args, int);
 
 	i = octal_recursion(n);
-	return (i - 3);
+	return (i - 2);
 }
 
 
@@ -27,12 +27,17 @@ int octal_recursion(unsigned int n)
 	int i = 0;
 	unsigned int num, remainder;
 
+	if (n == 0)
+	{
+		_putchar('0');
+	}
 	if (n > 0)
 	{
 		num = n / 8;
 		remainder = n % 8;
 
-		i += octal_recursion(num);
+		if (num > 0)
+			i += octal_recursion(num);
 		_putchar(remainder + '0');
 	}
 	i++;
@@ -70,6 +75,10 @@ int hex_recursion_upper(unsigned int n)
 	char *dec = "012345";
 	char *hex = "FEDCBA";
 
+	if (n == 0)
+	{
+		_putchar('0');
+	}
 	if (n == 1)
 	{
 		_putchar('1');
@@ -89,8 +98,10 @@ int hex_recursion_upper(unsigned int n)
 					remainder = hex[j] - '0';
 			}
 		}
-		count += hex_recursion_upper(num);
+		if (num > 0)
+			count += hex_recursion_upper(num);
 		_putchar(remainder + '0');
 	}
-	return (count + 1);
+	count++;
+	return (count);
 }

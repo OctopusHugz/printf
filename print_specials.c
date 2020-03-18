@@ -29,6 +29,10 @@ int hex_recursion_lower(unsigned int n)
 	char *dec = "012345";
 	char *hex = "fedcba";
 
+	if (n == 0)
+	{
+		_putchar('0');
+	}
 	if (n == 1)
 	{
 		_putchar('1');
@@ -48,10 +52,12 @@ int hex_recursion_lower(unsigned int n)
 					remainder = hex[j] - '0';
 			}
 		}
-		count += hex_recursion_lower(num);
+		if (num > 0)
+			count += hex_recursion_lower(num);
 		_putchar(remainder + '0');
 	}
-	return (count + 1);
+	count++;
+	return (count);
 }
 
 /**
