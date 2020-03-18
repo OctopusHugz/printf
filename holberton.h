@@ -14,6 +14,8 @@ int _strlen(const char *format);
 
 int count_args(char *holder);
 
+int _buffer(char *string);
+
 /**
  * struct specifier - struct type
  *
