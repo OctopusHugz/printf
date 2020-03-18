@@ -81,13 +81,15 @@ int print_string_cust(va_list args)
 {
 	char *string = va_arg(args, char *);
 	char *point = string;
-	int i, count = 0;
+	int i = 0, count = 0;
 
 	if (string == NULL)
 	{
 		_printf("(null)");
-		count += 6;
+		return (4);
 	}
+	if (string[i] == '\0')
+		return (-2);
 	for (i = 0; string[i]; i++, point++)
 	{
 		if ((string[i] > 0 && string[i] < 32) || string[i] >= 127)
