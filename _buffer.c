@@ -17,6 +17,8 @@ int _buffer(char *string, char c)
 	{
 		buffer[i] = 0;
 	}
+	if (c == '\0' && string == NULL)
+		string = "";
 	if (c == '\0')
 	{
 		(void) c;
