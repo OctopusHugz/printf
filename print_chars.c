@@ -96,10 +96,11 @@ int print_string_cust(va_list args)
 		{
 			_putchar('\\');
 			_putchar('x');
-			/*count += 2;*/
-			if (*point >= 9 && *point <= 16)
+			count += 2;
+			if (*point >= 0 && *point <= 16)
 			{
 				_putchar('0');
+				count++;
 			}
 			count += hex_recursion_upper(string[i]);
 		}
@@ -110,5 +111,5 @@ int print_string_cust(va_list args)
 		}
 	}
 	count++;
-	return (count);
+	return (count - 3);
 }
