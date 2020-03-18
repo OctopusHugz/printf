@@ -3,9 +3,10 @@
 /**
  * _buffer - prints and counts string
  * @string: string given
+ * @c: character given
  * Return: int
  */
-int _buffer(char *string)
+int _buffer(char *string, char c)
 {
 	int i, j;
 	char *buffer = malloc(sizeof(char) * 1024);
@@ -16,16 +17,29 @@ int _buffer(char *string)
 	{
 		buffer[i] = 0;
 	}
-	for (i = 0; string[i]; i++)
+	if (c == '\0')
 	{
-		buffer[i] = string[i];
+		(void) c;
+		for (i = 0; string[i]; i++)
+		{
+			buffer[i] = string[i];
+		}
+		buffer[i] = '\0';
+		for (i = 0; buffer[i]; i++)
+		{
+			_putchar(buffer[i]);
+		}
+		j = _strlen(buffer + 1);
 	}
-	buffer[i] = '\0';
-	for (i = 0; buffer[i]; i++)
+	if (string == NULL)
 	{
-		_putchar(buffer[i]);
+		(void) string;
+		*buffer = c;
+		*(buffer + 1) = '\0';
+		_putchar(c);
+		j = _strlen(buffer + 1);
 	}
-	j = _strlen(buffer + 1);
+
 	free(buffer);
 	return (j);
 }

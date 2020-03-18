@@ -26,7 +26,7 @@ int print_char(va_list args)
 
 	if (c < 32 && c > 127)
 		return (-1);
-	_putchar(c);
+	i += _buffer(NULL, c);
 	return (i);
 }
 
@@ -46,7 +46,7 @@ int print_string(va_list args)
 	{
 		string = "(null)";
 	}
-	i += _buffer(string);
+	i += _buffer(string, '\0');
 	return (i - 1);
 }
 
@@ -60,7 +60,7 @@ int print_mod(void)
 {
 	int i = 0;
 
-	_putchar('%');
+	i = _buffer(NULL, '%');
 	return (i - 1);
 }
 
