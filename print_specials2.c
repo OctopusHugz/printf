@@ -78,12 +78,10 @@ int hex_recursion_upper(unsigned int n)
 	if (n == 0)
 	{
 		_putchar('0');
-		
 	}
 	if (n == 1)
 	{
 		_putchar('1');
-		count++;
 	}
 	if (n > 1)
 	{
