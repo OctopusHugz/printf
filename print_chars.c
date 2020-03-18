@@ -46,11 +46,7 @@ int print_string(va_list args)
 	{
 		string = "(null)";
 	}
-	for (i = 0; string[i]; i++)
-	{
-		_putchar(string[i]);
-	}
-	i -= 1;
+	i += _buffer(string);
 	return (i - 1);
 }
 
