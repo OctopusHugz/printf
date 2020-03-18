@@ -93,10 +93,10 @@ int print_number_ui(unsigned int n)
  * Return: number of integers printed
  */
 
-int print_unsigned(va_list arguments)
+int print_unsigned(va_list args)
 {
 	int i = 0;
-	unsigned ui = va_arg(arguments, int);
+	unsigned int ui = va_arg(args, int);
 
 	i += print_number_ui(ui);
 	return (i - 2);
