@@ -23,6 +23,7 @@ int modulo(va_list args, char c)
 		{"X", print_hex_upper},
 		{"S", print_string_cust},
 		{"p", print_pointer},
+		{"r", print_rev_string},
 		{NULL, NULL}
 	};
 

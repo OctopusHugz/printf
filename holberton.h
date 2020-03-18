@@ -81,4 +81,8 @@ int print_string_cust(va_list arguments);
 
 int print_pointer(va_list args);
 
+int print_rev_string(va_list args);
+
+int print_rev_recursion(char *string);
+
 #endif /* HOLBERTON_H */
