@@ -40,3 +40,48 @@ int print_rev_string(va_list args)
 
 	return (i - 3);
 }
+
+
+/**
+ * hex_recursion_lower_long - start of function
+ * @n: unsigned int
+ * Return: int
+ */
+
+int hex_recursion_lower_long(unsigned long n)
+{
+	int count = 0;
+	unsigned long num, i, j;
+	int remainder;
+	char *dec = "012345";
+	char *hex = "fedcba";
+
+	if (n == 0)
+	{
+		_putchar('0');
+	}
+	if (n == 1)
+	{
+		_putchar('1');
+	}
+	if (n > 1)
+	{
+		num = n / 16;
+		remainder = n % 16;
+		if (remainder > 9)
+		{
+			remainder = remainder - 15;
+			remainder = -remainder;
+			for (i = 0, j = 0; dec[i]; i++, j++)
+			{
+				if (remainder == (dec[i] - '0'))
+					remainder = hex[j] - '0';
+			}
+		}
+		if (num > 0)
+			count += hex_recursion_lower_long(num);
+		_putchar(remainder + '0');
+	}
+	count++;
+	return (count);
+}

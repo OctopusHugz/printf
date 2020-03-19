@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <unistd.h>
 #include <limits.h>
 
@@ -86,5 +87,7 @@ int print_pointer(va_list args);
 int print_rev_string(va_list args);
 
 int print_rev_recursion(char *string);
+
+int hex_recursion_lower_long(unsigned long n);
 
 #endif /* HOLBERTON_H */

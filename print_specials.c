@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -119,13 +120,18 @@ int binary_recursion(unsigned int n)
 int print_pointer(va_list args)
 {
 	int i = 0;
-	unsigned int holder;
+	void *holder = va_arg(args, void *);
+	uintptr_t uiptr = (uintptr_t) holder;
 
-	holder = va_arg(args, int);
-	_putchar('0');
-	i += 1;
-	_putchar('x');
-	i += 1;
-	i = hex_recursion_lower(holder);
-	return (i);
+	if (holder == NULL)
+	{
+		_printf("(nil)");
+		return (3);
+	}
+
+	_printf("0x");
+	i += hex_recursion_lower_long(uiptr);
+
+	i++;
+	return (i - 1);
 }
