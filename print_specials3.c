@@ -136,6 +136,7 @@ int print_rot13(va_list args)
 		for (; string2[i]; i++, count++)
 			_putchar(string2[i]);
 	}
+	free(string2);
 	return (count - 2);
 }
 
