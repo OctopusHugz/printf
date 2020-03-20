@@ -102,7 +102,7 @@ int print_rot13(va_list args)
 	char *rot = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 	char *string = va_arg(args, char *), *string2, *rotstring, *rotstring2;
 
-	string2 = strdup(string);
+	string2 = _strdup(string);
 	rot_pos = rot_finder(string2);
 	if (rot_pos == INT_MAX)
 	{
@@ -120,7 +120,7 @@ int print_rot13(va_list args)
 		}
 		i += 2;
 		rotstring = va_arg(args, char *);
-		rotstring2 = strdup(rotstring);
+		rotstring2 = _strdup(rotstring);
 		for (k = 0; rotstring2[k]; k++, count++)
 		{
 			for (l = 0; norm[l]; l++)

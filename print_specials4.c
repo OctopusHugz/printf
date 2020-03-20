@@ -25,3 +25,34 @@ char *rot_printer(char *string)
 	}
 	return (string);
 }
+
+
+/**
+ * _strdup - copies a string into newly allocated memory and returns pointer
+ * @str: string to copy into new memory space
+ *
+ * Return: pointer to newly allocated memory
+ */
+
+char *_strdup(char *str)
+{
+	int i, len;
+	char *array;
+
+	if (str == NULL)
+		return (NULL);
+
+	for (len = 0; str[len]; len++)
+		;
+
+	array = (char *) malloc(sizeof(char) * len + 1);
+
+	if (array == NULL)
+		return (NULL);
+
+	for (i = 0; i < len; i++)
+		array[i] = str[i];
+	array[i] = '\0';
+
+	return (array);
+}
