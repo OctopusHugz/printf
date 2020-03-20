@@ -96,4 +96,6 @@ int rot_finder(char *string);
 
 char *rot_printer(char *string);
 
+char *_strdup(char *str);
+
 #endif /* HOLBERTON_H */
