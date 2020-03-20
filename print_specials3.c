@@ -1,3 +1,4 @@
+#include <string.h>
 #include "holberton.h"
 
 /**
@@ -84,4 +85,78 @@ int hex_recursion_lower_long(unsigned long n)
 	}
 	count++;
 	return (count);
+}
+
+
+/**
+ * print_rot13 - prints a ROT13 string
+ * @args: string to encode from va_list args
+ *
+ * Return: number of characters printed
+ */
+
+int print_rot13(va_list args)
+{
+	int i = 0, k = 0, l, rot_pos = 0, count = 0;
+	char *norm = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *rot = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *string = va_arg(args, char *), *string2, *rotstring, *rotstring2;
+
+	string2 = strdup(string);
+	rot_pos = rot_finder(string2);
+	if (rot_pos == INT_MAX)
+	{
+		string2 = rot_printer(string2);
+		_printf("%s", string2);
+		count = _strlen(string2);
+	}
+	else
+	{
+		while (string2[i] && i < rot_pos)
+		{
+			_putchar(string2[i]);
+			i++;
+			count++;
+		}
+		i += 2;
+		rotstring = va_arg(args, char *);
+		rotstring2 = strdup(rotstring);
+		for (k = 0; rotstring2[k]; k++, count++)
+		{
+			for (l = 0; norm[l]; l++)
+			{
+				if (rotstring2[k] == norm[l])
+				{
+					rotstring2[k] = rot[l];
+					break;
+				}
+			}
+		}
+		_printf("%s", rotstring2);
+		for (; string2[i]; i++, count++)
+			_putchar(string2[i]);
+	}
+	return (count - 2);
+}
+
+
+/**
+ * rot_finder - finds a ROT13 argument in a string passed to print_rot13
+ * @string: string to find symbols in
+ * Return: 1 if found, 0 if not
+ **/
+
+int rot_finder(char *string)
+{
+	int i = 0;
+
+	while (string[i])
+	{
+		if (string[i] == '%' && string[i + 1] == 'R')
+		{
+			return (i);
+		}
+		i++;
+	}
+	return (INT_MAX);
 }
