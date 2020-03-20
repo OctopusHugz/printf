@@ -1,10 +1,10 @@
 #include "holberton.h"
 
 /**
+ * print_plus - accounts for plus flag
+ * @args: argument given
  *
- *
- *
- *
+ * Return: int
  */
 int print_plus(va_list args)
 {
@@ -13,9 +13,9 @@ int print_plus(va_list args)
 
 	holder = va_arg(args, int);
 	if (holder >= 0)
-        {
-                _putchar('+');
-        }
+	{
+		_putchar('+');
+	}
 	else
 	{
 		i -= 1;
@@ -24,6 +24,13 @@ int print_plus(va_list args)
 	return (i - 2);
 }
 
+/**
+ * print_hash - accounts for hash flag
+ * @args: argument given
+ * @c: format spec
+ *
+ * Return: int
+ */
 int print_hash(va_list args, char c)
 {
 	int i = 0;
@@ -48,6 +55,12 @@ int print_hash(va_list args, char c)
 	return (i);
 }
 
+/**
+ * print_space - accounts for space flag
+ * @args: argument given
+ *
+ * Return: int
+ */
 int print_space(va_list args)
 {
 	int i = 0;

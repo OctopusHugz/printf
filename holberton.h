@@ -17,8 +17,6 @@ int count_args(char *holder);
 
 int _buffer(char *string, char c);
 
-char *rot13(char *str);
-
 /**
  * struct specifier - struct type
  *
