@@ -90,4 +90,10 @@ int print_rev_recursion(char *string);
 
 int hex_recursion_lower_long(unsigned long n);
 
+int print_rot13(va_list args);
+
+int rot_finder(char *string);
+
+char *rot_printer(char *string);
+
 #endif /* HOLBERTON_H */
