@@ -22,7 +22,15 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
-			num_args += modulo(args, format[i + 1]);
+			if (format[i + 1] == '#')
+			{
+				num_args += print_hash(args, format[i + 2]);
+			}
+			else
+				num_args += modulo(args, format[i + 1]);
+			if (format[i + 1] == '+' || format[i + 1] == ' ' ||
+				format[i + 1] == '#')
+				i += 1;
 			i++;
 		}
 		else

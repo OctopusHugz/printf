@@ -24,6 +24,8 @@ int modulo(va_list args, char c)
 		{"S", print_string_cust},
 		{"p", print_pointer},
 		{"r", print_rev_string},
+		{"+", print_plus},
+		{" ", print_space},
 		{"R", print_rot13},
 		{NULL, NULL}
 	};

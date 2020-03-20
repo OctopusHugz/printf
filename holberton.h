@@ -17,6 +17,8 @@ int count_args(char *holder);
 
 int _buffer(char *string, char c);
 
+char *rot13(char *str);
+
 /**
  * struct specifier - struct type
  *
@@ -43,6 +45,12 @@ typedef struct hex
 	unsigned int num;
 	char h;
 } hex;
+
+int print_hash(va_list args, char c);
+
+int print_space(va_list args);
+
+int print_plus(va_list args);
 
 int print_number(int n);
 

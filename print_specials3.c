@@ -42,7 +42,6 @@ int print_rev_string(va_list args)
 	return (i - 3);
 }
 
-
 /**
  * hex_recursion_lower_long - start of function
  * @n: unsigned int
