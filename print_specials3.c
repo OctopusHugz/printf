@@ -114,8 +114,7 @@ int print_rot13(va_list args)
 		while (string2[i] && i < rot_pos)
 		{
 			_putchar(string2[i]);
-			i++;
-			count++;
+			i++, count++;
 		}
 		i += 2;
 		rotstring = va_arg(args, char *);
@@ -132,7 +131,6 @@ int print_rot13(va_list args)
 			}
 		}
 		_printf("%s", rotstring2);
-		free(rotstring2);
 		for (; string2[i]; i++, count++)
 			_putchar(string2[i]);
 	}
