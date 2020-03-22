@@ -6,6 +6,7 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <limits.h>
+#include <ctype.h>
 
 int _printf(const char *format, ...);
 
@@ -16,6 +17,12 @@ int _strlen(const char *format);
 int count_args(char *holder);
 
 int _buffer(char *string, char c);
+
+int _pow_recursion(int x, int y);
+
+int num_digits(int n);
+
+int width_printer(va_list args, char c, char d);
 
 /**
  * struct specifier - struct type
