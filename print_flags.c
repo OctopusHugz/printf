@@ -109,7 +109,8 @@ int num_digits(int n)
 
 	if (n < 0)
 		count++;
-
+	if ((n >= 'a' && n <= 'z') || (n >= 'A' && n <= 'Z'))
+		count--;
 	while (n > 0 || n < 0)
 	{
 		n /= 10;
