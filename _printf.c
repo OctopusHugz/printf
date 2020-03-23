@@ -61,26 +61,42 @@ int _printf(const char *format, ...)
 int width_printer(va_list args, char c, char d)
 {
 	va_list args2;
-	int count = 0, width = 0, num = 0, digits = 0, digits2 = 0,
-		spaces_count = 0, field = 0, num_spaces = 0;
+	char *string;
+	int count = 0, width = c - '0' - 1, num = 0, digits2 = 0, spaces_count
+		= 0, field = _pow_recursion(10, width), digits =
+		num_digits(field), num_spaces = 0, length = 0;
 
 	va_copy(args2, args);
-	width = c - '0' - 1;
-	field = _pow_recursion(10, width);
-	num = va_arg(args, int);
-	digits = num_digits(field);
-	digits2 = num_digits(num);
-	num_spaces = digits - digits2;
-	while (spaces_count < num_spaces)
+	if (d == 'd' || d == 'i' || d == 'u' || d == 'x'
+	    || d == 'X' || d == 'o' || d == 'b' || d == 'c')
 	{
-		_putchar(' ');
-		spaces_count++;
+		num = va_arg(args, int);
+		digits2 = num_digits(num);
+		num_spaces = digits - digits2;
+		while (spaces_count < num_spaces)
+		{
+			_putchar(' ');
+			spaces_count++;
+		}
+		if (num_spaces < 0)
+			count--;
+		if (num_spaces >= 0)
+			count += num_spaces - 1;
+		count += modulo(args2, d);
 	}
-	if (num_spaces < 0)
+	else if (d == 's')
+	{
+		string = va_arg(args, char *);
+		length = _strlen(string);
+		while (length < digits)
+		{
+			_putchar(' ');
+			length++;
+			count++;
+		}
 		count--;
-	if (num_spaces >= 0)
-		count += num_spaces - 1;
-	count += modulo(args2, d);
+		count += modulo(args2, d);
+	}
 	va_end(args2);
 	return (count);
 }
