@@ -24,6 +24,8 @@ int num_digits(int n);
 
 int width_printer(va_list args, char c, char d);
 
+int space_printer(int digits, int num);
+
 /**
  * struct specifier - struct type
  *
